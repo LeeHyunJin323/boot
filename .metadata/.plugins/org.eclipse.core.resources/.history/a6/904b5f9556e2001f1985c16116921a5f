@@ -1,0 +1,33 @@
+package controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import dto.Article;
+import dto.ArticleDto;
+
+@RestController
+@RequestMapping("/api")
+public class ReqController {
+	
+	
+	// createArticle(user_id , title , body , image_url) -> 게시글 작성
+	
+	
+	@PostMapping("/create")
+	public ResponseEntity<?> createArticle(@RequestBody  ArticleDto articleDto)
+	{
+		boolean result = false;
+		
+		result = ArticleService.ArticleDto(articleDto);
+		
+		
+		retrun
+	}
+
+	
+	
+}

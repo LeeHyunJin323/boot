@@ -1,0 +1,27 @@
+package dto;
+
+import lombok.Data;
+
+@Data
+public class ArticleDto {
+
+    private String userId;
+    private String title;
+    private String body;
+    private String imageUrl;
+    
+    public Article toEntity() {
+    	return Article.builder()
+    			.article_userId(userId)
+    			.article_title(title)
+    			.article_body(body)
+    			.article_imageUrl(imageUrl)
+    			.build();
+    			
+    }
+
+
+    
+    
+    
+}
