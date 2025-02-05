@@ -1,0 +1,34 @@
+package controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import dto.Article;
+import dto.ArticleDto;
+import dto.CMRespDto;
+import lombok.RequiredArgsConstructor;
+import service.ArticleService;
+
+@RestController
+@RequestMapping("/api")  // 클래스 레벨에서 API 경로 설정
+@RequiredArgsConstructor
+public class ReqController {
+    
+    private final ArticleService articleService;  // 서비스 주입
+
+    @PostMapping("/create")  // 최종 경로: /api/create
+    public ResponseEntity<?> createArticle(@RequestBody ArticleDto articleDto) {
+        boolean result;
+        try {
+            result = articleService.createArticle(articleDto);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.ok().body(new CMRespDto<>(-1, "작성 실패", false));
+        }
+        return ResponseEntity.ok().body(new CMRespDto<>(1, "작성 성공", result));
+    }
+}
+

@@ -1,0 +1,11 @@
+package com.example.boot2.service;
+
+import com.example.boot2.dto.Article;
+
+
+public interface ArticleService {
+
+	public boolean createArticle(Article articleDto) throws Exception;
+	
+	
+}

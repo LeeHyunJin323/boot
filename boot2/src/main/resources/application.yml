@@ -20,8 +20,8 @@ spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://petbook.cb6gysmkq9yf.ap-northeast-2.rds.amazonaws.com:3306/petbook?useUnicode=true&characterEncoding=UTF-8
-    username: 
-    password:
+    username: admin
+    password: ehddmleogkrry123@
     
 mybatis:
   mapper-locations:
